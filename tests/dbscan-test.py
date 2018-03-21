@@ -11,11 +11,11 @@ class DBSCANTest(unittest.TestCase):
 
     def test_dbscan(self):
         dbs = dbscan.DBSCAN(eps=0.4, min_samples=5)
-        clusters = dbs.fit_predict(self.X)
+        clusters = dbs.fit_transform(self.X)
         self.assertEqual(len(np.unique(clusters[clusters >= 0])), 2)
 
         dbs = dbscan.DBSCAN(eps=0.2)
-        clusters = dbs.fit_predict(self.X)
+        clusters = dbs.fit_transform(self.X)
         self.assertGreater(len(np.unique(clusters[clusters >= 0])), 3)
 
         self.assertGreater(np.sum(clusters < 0), 3)
