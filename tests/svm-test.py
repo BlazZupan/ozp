@@ -18,7 +18,7 @@ def generate_data(data_type, n_samples=100):
             cluster_std=0.4
         )
     elif data_type == "circle":
-        X = (np.random.rand(500, 2) - 0.5) * 20
+        X = (np.random.rand(n_samples, 2) - 0.5) * 20
         y = (np.sqrt(np.sum(X ** 2, axis=1)) > 8).astype(int)
 
     X = add_ones(X)
